@@ -265,12 +265,12 @@ function App() {
               {/* Logo */}
               <div className="flex items-center group cursor-pointer" onClick={() => scrollToSection('home')}>
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg blur-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="relative bg-[#020204] border border-white/10 p-2.5 rounded-lg transform group-hover:scale-110 transition-transform">
-                    <Code2 className="w-6 h-6 text-cyan-400" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative bg-[#020204]/50 border border-white/10 p-1 rounded-xl backdrop-blur-md transform group-hover:scale-105 transition-all duration-500 overflow-hidden">
+                    <img src="/logo_aa.png" alt="AA Logo" className="w-10 h-10 object-contain" />
                   </div>
                 </div>
-                <span className="mr-3 text-xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">عبدالله عاليين</span>
+                <span className="mr-3 text-xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">عبدالله عالين</span>
               </div>
 
               {/* Desktop Menu */}
@@ -727,11 +727,11 @@ function App() {
 
         <footer className="relative py-12 border-t border-white/5">
           <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-white/5 rounded-lg border border-white/10">
-                <Code2 className="w-5 h-5 text-cyan-400" />
+            <div className="flex items-center gap-3 group">
+              <div className="p-1 px-1.5 bg-white/5 rounded-lg border border-white/10 group-hover:border-cyan-500/50 transition-colors bg-[#050508]">
+                <img src="/logo_aa.png" alt="AA Logo" className="w-8 h-8 object-contain" />
               </div>
-              <span className="text-gray-500 text-sm font-medium">© 2026 عبدالله عالين. جميع الحقوق محفوظة</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">عبدالله عالين</span>
             </div>
             <div className="text-gray-500 text-sm">
               صُنع بكل شغف في موريتانيا 🇲🇷
