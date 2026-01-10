@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Mail, Phone, ExternalLink, Code2, Smartphone, Database, Palette, ChevronDown, MessageSquare, Facebook, Monitor, Zap, Layout, Lightbulb, Cpu, Rocket, CheckCircle2, ChevronUp, Copy, Check } from 'lucide-react';
+import { Menu, X, Mail, Phone, ExternalLink, Code2, Smartphone, Database, Palette, MessageSquare, Facebook, Monitor, Zap, Layout, Lightbulb, Cpu, Rocket, CheckCircle2, ChevronUp, Check } from 'lucide-react';
 
 const SKILLS_DATA = [
   { name: 'React & TypeScript', icon: Code2, description: 'بناء تطبيقات ويب تفاعلية وحديثة', color: 'from-cyan-500 to-blue-500' },
@@ -97,7 +97,7 @@ const PROJECTS_DATA = [
     desc: 'لعبة ورق موريتانية متكاملة للعب الجماعي عبر الإنترنت، تعيد إحياء التراث بطابع عصري.',
     tags: ['React', 'TypeScript', 'Convex'],
     link: 'https://tornic-mobile.vercel.app/',
-    image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=1000'
+    image: '/tornic-screenshot.png'
   },
   {
     title: 'Expense Tracker',
@@ -107,6 +107,8 @@ const PROJECTS_DATA = [
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000'
   }
 ];
+
+const TITLES = ['مطور Full Stack', 'تطوير تطبيقات Flutter', 'حلول الذكاء الاصطناعي'];
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -121,11 +123,11 @@ function App() {
   const [typewriterIndex, setTypewriterIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const titles = ['مطور Full Stack', 'تطوير تطبيقات Flutter', 'حلول الذكاء الاصطناعي'];
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const currentTitle = titles[typewriterIndex];
+      const currentTitle = TITLES[typewriterIndex];
       if (!isDeleting) {
         setTypewriterText(currentTitle.substring(0, typewriterText.length + 1));
         if (typewriterText === currentTitle) {
@@ -135,7 +137,7 @@ function App() {
         setTypewriterText(currentTitle.substring(0, typewriterText.length - 1));
         if (typewriterText === '') {
           setIsDeleting(false);
-          setTypewriterIndex((prev) => (prev + 1) % titles.length);
+          setTypewriterIndex((prev) => (prev + 1) % TITLES.length);
         }
       }
     }, isDeleting ? 50 : 100);
@@ -625,7 +627,7 @@ function App() {
                   <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-[2.5rem] blur opacity-10 group-hover:opacity-30 transition-opacity"></div>
                   <div className="relative bg-[#020204] border border-white/10 rounded-[2.5rem] overflow-hidden">
                     <div className="grid lg:grid-cols-2">
-                      <div className={`p-8 md:p-16 space-y-8 flex flex-col justify-center ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+                      <div className="p-8 md:p-16 space-y-8 flex flex-col justify-center">
                         <div className="flex gap-2">
                           {project.tags.map(t => (
                             <span key={t} className="px-3 py-1 bg-white/5 rounded-full text-xs text-gray-400">{t}</span>
