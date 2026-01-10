@@ -91,6 +91,23 @@ const PROCESS_DATA = [
   }
 ];
 
+const PROJECTS_DATA = [
+  {
+    title: 'TornicMobile',
+    desc: 'لعبة ورق موريتانية متكاملة للعب الجماعي عبر الإنترنت، تعيد إحياء التراث بطابع عصري.',
+    tags: ['React', 'TypeScript', 'Convex'],
+    link: 'https://tornic-mobile.vercel.app/',
+    image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=1000'
+  },
+  {
+    title: 'Expense Tracker',
+    desc: 'تطبيق احترافي لإدارة المصاريف والميزانية الشخصية مع تقارير بيانية متقدمة.',
+    tags: ['React', 'Tailwind', 'Chart.js'],
+    link: '#',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000'
+  }
+];
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -602,47 +619,46 @@ function App() {
               <p className="text-gray-500 max-w-sm text-right">نظرة على بعض المشاريع التي قمت بتطويرها مؤخراً</p>
             </div>
 
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
-              <div className="relative bg-[#020204] border border-white/10 rounded-[2.5rem] overflow-hidden">
-                <div className="grid lg:grid-cols-2">
-                  <div className="p-8 md:p-16 space-y-8 flex flex-col justify-center">
-                    <div className="flex gap-2">
-                      {['React', 'TypeScript', 'Convex'].map(t => (
-                        <span key={t} className="px-3 py-1 bg-white/5 rounded-full text-xs text-gray-400">{t}</span>
-                      ))}
-                    </div>
-                    <h3 className="text-4xl font-bold">TornicMobile</h3>
-                    <p className="text-xl text-gray-400 font-light leading-relaxed">
-                      لعبة ورق موريتانية متكاملة للعب الجماعي عبر الإنترنت، تعيد إحياء التراث بطابع عصري.
-                    </p>
-                    <a href="https://tornic-mobile.vercel.app/" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-cyan-400 font-bold group/link">
-                      <span>زيارة الموقع</span>
-                      <ExternalLink className="w-5 h-5 group-hover/link:translate-x-[-4px] transition-transform" />
-                    </a>
-                  </div>
-                  <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 p-8 md:p-16 flex items-center justify-center">
-                    <div className="relative w-full aspect-video bg-[#020204] rounded-2xl border border-white/10 shadow-2xl overflow-hidden group/img">
-                      {/* Scanner Effect */}
-                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent z-20 opacity-0 group-hover/img:opacity-100 group-hover/img:animate-scan shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
-
-                      <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-transparent"></div>
-                      <div className="absolute inset-x-0 top-0 h-6 bg-white/5 border-b border-white/5 flex items-center px-3 gap-1.5 z-10">
-                        <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
-                        <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
-                        <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
+            <div className="grid gap-12">
+              {PROJECTS_DATA.map((project, index) => (
+                <div key={index} className="group relative reveal">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-[2.5rem] blur opacity-10 group-hover:opacity-30 transition-opacity"></div>
+                  <div className="relative bg-[#020204] border border-white/10 rounded-[2.5rem] overflow-hidden">
+                    <div className="grid lg:grid-cols-2">
+                      <div className={`p-8 md:p-16 space-y-8 flex flex-col justify-center ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+                        <div className="flex gap-2">
+                          {project.tags.map(t => (
+                            <span key={t} className="px-3 py-1 bg-white/5 rounded-full text-xs text-gray-400">{t}</span>
+                          ))}
+                        </div>
+                        <h3 className="text-4xl font-bold">{project.title}</h3>
+                        <p className="text-xl text-gray-400 font-light leading-relaxed">
+                          {project.desc}
+                        </p>
+                        <a href={project.link} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-cyan-400 font-bold group/link">
+                          <span>{project.link === '#' ? 'قادم قريباً' : 'زيارة المشروع'}</span>
+                          <ExternalLink className="w-5 h-5 group-hover/link:translate-x-[-4px] transition-transform" />
+                        </a>
                       </div>
-                      <div className="mt-10 flex flex-col items-center gap-4 px-8">
-                        <div className="h-2 w-24 bg-white/10 rounded-full animate-pulse"></div>
-                        <div className="grid grid-cols-2 w-full gap-4">
-                          <div className="h-20 bg-white/5 rounded-xl border border-white/5"></div>
-                          <div className="h-20 bg-white/5 rounded-xl border border-white/5"></div>
+                      <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 p-8 md:p-16 flex items-center justify-center relative overflow-hidden">
+                        <div className="relative w-full aspect-video bg-[#020204] rounded-2xl border border-white/10 shadow-2xl overflow-hidden group/img">
+                          {/* Scanner Effect */}
+                          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent z-20 opacity-0 group-hover/img:opacity-100 group-hover/img:animate-scan shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
+
+                          <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-transparent"></div>
+                          <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-50 group-hover/img:scale-110 transition-transform duration-700" />
+
+                          <div className="absolute inset-x-0 top-0 h-6 bg-white/5 border-b border-white/5 flex items-center px-3 gap-1.5 z-10">
+                            <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
+                            <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                            <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
