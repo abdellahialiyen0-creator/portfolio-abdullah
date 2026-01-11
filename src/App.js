@@ -100,11 +100,11 @@ const PROJECTS_DATA = [
     image: '/tornic-screenshot.png'
   },
   {
-    title: 'Expense Tracker',
-    desc: 'تطبيق احترافي لإدارة المصاريف والميزانية الشخصية مع تقارير بيانية متقدمة.',
-    tags: ['React', 'Tailwind', 'Chart.js'],
-    link: '#',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000'
+    title: 'Smart Wallet Pro',
+    desc: 'نظام مالي ذكي متكامل لإدارة المصاريف والميزانية الشخصية مع تحليلات بيانية متقدمة وتتبع للأهداف المالية.',
+    tags: ['React', 'Tailwind CSS', 'Framer Motion'],
+    link: 'https://smart-wallet-pro.vercel.app/',
+    image: '/smart-wallet.png'
   }
 ];
 
@@ -647,8 +647,8 @@ function App() {
                           {/* Scanner Effect */}
                           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent z-20 opacity-0 group-hover/img:opacity-100 group-hover/img:animate-scan shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
 
-                          <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-transparent"></div>
-                          <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-50 group-hover/img:scale-110 transition-transform duration-700" />
+                          <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-transparent z-10"></div>
+                          <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-90 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-700" />
 
                           <div className="absolute inset-x-0 top-0 h-6 bg-white/5 border-b border-white/5 flex items-center px-3 gap-1.5 z-10">
                             <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
